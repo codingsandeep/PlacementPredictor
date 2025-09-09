@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor - Student Placement Predictor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-pattern-blue">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-chart-line me-2"></i>PlacementPredictor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="predictor.html">Predictor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="insights.html">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header-blue">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-3">Placement Predictor</h1>
+                    <div class="divider mb-4"></div>
+                    <p class="lead">Enter your details below to predict your placement chances and expected salary</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Predictor Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="glass-card-blue p-4 p-md-5 mb-5">
+                        <h3 class="h3 fw-bold text-white mb-4 text-center">Enter Your Details</h3>
+                        <form id="prediction-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="cgpa" class="form-label text-white">CGPA (0-10)</label>
+                                    <input type="number" class="form-control" id="cgpa" min="0" max="10" step="0.01" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="major-projects" class="form-label text-white">Major Projects</label>
+                                    <input type="number" class="form-control" id="major-projects" min="0" max="10" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="minor-projects" class="form-label text-white">Minor Projects</label>
+                                    <input type="number" class="form-control" id="minor-projects" min="0" max="10" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="workshops" class="form-label text-white">Workshops Attended</label>
+                                    <input type="number" class="form-control" id="workshops" min="0" max="20" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="skills" class="form-label text-white">Technical Skills (1-10)</label>
+                                    <input type="number" class="form-control" id="skills" min="1" max="10" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="comm-skills" class="form-label text-white">Communication Skills (1-5)</label>
+                                    <input type="number" class="form-control" id="comm-skills" min="1" max="5" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="internship" class="form-label text-white">Internship Experience</label>
+                                    <select class="form-select" id="internship" required>
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="hackathon" class="form-label text-white">Hackathon Participation</label>
+                                    <select class="form-select" id="hackathon" required>
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="backlogs" class="form-label text-white">Number of Backlogs</label>
+                                    <input type="number" class="form-control" id="backlogs" min="0" max="10" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="certifications" class="form-label text-white">Certifications</label>
+                                    <input type="number" class="form-control" id="certifications" min="0" max="20" required>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">Predict Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="result-content" class="glass-card-blue p-4 p-md-5 mb-5" style="display: none;">
+                        <div class="prediction-result">
+                            <h3 class="prediction-title">Your Prediction Results</h3>
+                            
+                            <div class="prediction-row">
+                                <div class="prediction-col">
+                                    <div class="placement-prediction">
+                                        <i class="fas fa-user-graduate prediction-icon"></i>
+                                        <h4 class="placement-title">Placement Prediction</h4>
+                                        <div class="placement-value" id="placement-result">-</div>
+                                        <p class="prediction-description">Likelihood of placement based on your profile</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="prediction-col">
+                                    <div id="salary-prediction-container" class="salary-prediction" style="display: none;">
+                                        <i class="fas fa-money-bill-wave prediction-icon"></i>
+                                        <h4 class="salary-title">Expected Salary</h4>
+                                        <div class="salary-value" id="salary-result">-</div>
+                                        <p class="prediction-description">Estimated annual package based on your profile</p>
+                                    </div>
+                                    <div id="salary-info-text" class="text-center mt-4" style="display: none;">
+                                        <!-- This will be filled dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="suggestions-container" class="mt-4 pt-4 border-top border-light border-opacity-10" style="display: none;">
+                                <h4 class="h5 fw-bold text-white mb-3">
+                                    <i class="fas fa-lightbulb text-warning me-2"></i>Personalized Suggestions
+                                </h4>
+                                <ul id="prediction-suggestions" class="list-group list-group-flush bg-transparent">
+                                    <!-- Suggestions will be added here dynamically -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="glass-card-blue p-4 p-md-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h3 class="h3 fw-bold text-white mb-4">How It Works</h3>
+                                <p class="text-white-75">Our prediction model analyzes your input data and compares it with thousands of historical student records to generate accurate placement predictions.</p>
+                                <p class="text-white-75">The algorithm considers various factors with different weights:</p>
+                                <ul class="list-group list-group-flush bg-transparent mb-4">
+                                    <li class="list-group-item bg-transparent text-white-75 border-0"><i class="fas fa-check-circle text-primary me-2"></i> Academic performance (CGPA)</li>
+                                    <li class="list-group-item bg-transparent text-white-75 border-0"><i class="fas fa-check-circle text-primary me-2"></i> Technical and soft skills</li>
+                                    <li class="list-group-item bg-transparent text-white-75 border-0"><i class="fas fa-check-circle text-primary me-2"></i> Project experience</li>
+                                    <li class="list-group-item bg-transparent text-white-75 border-0"><i class="fas fa-check-circle text-primary me-2"></i> Internships and practical experience</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="https://img.freepik.com/free-vector/data-inform-illustration-concept_114360-864.jpg" alt="How It Works" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-gradient text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="h4 fw-bold mb-3">PlacementPredictor</h3>
+                    <p>Empowering students with data-driven insights to improve their placement opportunities.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="h5 fw-bold mb-3">Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="features.html" class="text-white text-decoration-none">Features</a></li>
+                        <li class="mb-2"><a href="predictor.html" class="text-white text-decoration-none">Predictor</a></li>
+                        <li class="mb-2"><a href="insights.html" class="text-white text-decoration-none">Insights</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="h5 fw-bold mb-3">Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form id="newsletter-form" class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 border-white opacity-25">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 PlacementPredictor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

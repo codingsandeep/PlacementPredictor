@@ -1,0 +1,66 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .graph-line { stroke: #4361ee; stroke-width: 3; fill: none; }
+    .graph-area { fill: rgba(67, 97, 238, 0.1); }
+    .dot { fill: #3a0ca3; }
+    .dot-highlight { fill: #f72585; }
+    .grid-line { stroke: #ddd; stroke-width: 1; }
+    .axis { stroke: #333; stroke-width: 2; }
+    .label { font-family: Arial; font-size: 12px; fill: #666; }
+    .title { font-family: Arial; font-size: 16px; font-weight: bold; fill: #333; }
+  </style>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="600" height="400" fill="#f8f9fa" rx="10" ry="10" />
+  
+  <!-- Grid -->
+  <g>
+    <line x1="50" y1="50" x2="50" y2="350" class="axis" />
+    <line x1="50" y1="350" x2="550" y2="350" class="axis" />
+    
+    <!-- Horizontal grid lines -->
+    <line x1="50" y1="50" x2="550" y2="50" class="grid-line" />
+    <line x1="50" y1="125" x2="550" y2="125" class="grid-line" />
+    <line x1="50" y1="200" x2="550" y2="200" class="grid-line" />
+    <line x1="50" y1="275" x2="550" y2="275" class="grid-line" />
+    
+    <!-- Vertical grid lines -->
+    <line x1="133" y1="50" x2="133" y2="350" class="grid-line" />
+    <line x1="216" y1="50" x2="216" y2="350" class="grid-line" />
+    <line x1="300" y1="50" x2="300" y2="350" class="grid-line" />
+    <line x1="383" y1="50" x2="383" y2="350" class="grid-line" />
+    <line x1="466" y1="50" x2="466" y2="350" class="grid-line" />
+    <line x1="550" y1="50" x2="550" y2="350" class="grid-line" />
+  </g>
+  
+  <!-- Graph -->
+  <path d="M50,300 C100,280 150,200 200,190 C250,180 300,150 350,120 C400,90 450,80 550,50" class="graph-line" />
+  <path d="M50,300 C100,280 150,200 200,190 C250,180 300,150 350,120 C400,90 450,80 550,50 L550,350 L50,350 Z" class="graph-area" />
+  
+  <!-- Data points -->
+  <circle cx="50" cy="300" r="5" class="dot" />
+  <circle cx="133" cy="250" r="5" class="dot" />
+  <circle cx="216" cy="190" r="5" class="dot" />
+  <circle cx="300" cy="150" r="5" class="dot" />
+  <circle cx="383" cy="100" r="5" class="dot" />
+  <circle cx="466" cy="80" r="5" class="dot" />
+  <circle cx="550" cy="50" r="8" class="dot-highlight" />
+  
+  <!-- Labels -->
+  <text x="300" y="380" text-anchor="middle" class="title">CGPA vs Placement Probability</text>
+  <text x="30" y="200" text-anchor="middle" transform="rotate(-90, 30, 200)" class="title">Probability</text>
+  
+  <!-- Decorative elements -->
+  <g transform="translate(450, 150)">
+    <rect x="0" y="0" width="120" height="80" fill="white" rx="5" ry="5" stroke="#ddd" />
+    <text x="60" y="20" text-anchor="middle" class="label">Prediction</text>
+    <text x="60" y="50" text-anchor="middle" class="title" fill="#4361ee">95% Placed</text>
+  </g>
+  
+  <!-- Student icon -->
+  <g transform="translate(100, 100)">
+    <circle cx="25" cy="15" r="15" fill="#4cc9f0" />
+    <rect x="10" y="35" width="30" height="40" fill="#4cc9f0" rx="5" ry="5" />
+    <rect x="0" y="60" width="50" height="10" fill="#3a0ca3" />
+  </g>
+</svg>
